@@ -181,20 +181,27 @@ console.log('array before', arrayTest);
 console.log('array after', arrayTest);
 
 /** *********************** Javascript Scope ***************************** */
-console.clear()
+console.clear();
 
-function testScopeJs() { //#ffff
-  var teacher = "kyle"
+function testScopeJs() {
+  //#ffff
+  var teacher = 'kyle';
   function otherClass() {
-    teacher = "Suzy";
-    topic = "React"
-    console.log('Welcome!')
+    teacher = 'Suzy';
+    topic = 'React';
+    console.log('Welcome!');
   }
 
-  otherClass()
+  otherClass();
 
-  console.log('teacher', teacher)
-  console.log('topic', topic)
+  console.log('teacher', teacher);
+  console.log('topic', topic);
 }
 
-testScopeJs()
+//testScopeJs()
+
+// undefined vs undeclared
+/**
+ * undefined: pas de valeur à cet instant
+ * undeclared: jamais de valeur dans tous les scopes que le compilateur parcours
+ */
