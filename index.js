@@ -275,7 +275,7 @@ function lookupRecord(searchStr, fn) {
   return id;
 } // to test , try to change var in
 
-// const
+// const => une variable qui ne peut pas être reasignéé
 
 function testConst() {
   var teacher = 'Ousmane';
@@ -287,3 +287,6 @@ function testConst() {
   const teachers = ['Ousmane', 'HAIDARA'];
   teachers[1] = 'OusDev'; // => Allowed!
 }
+
+//Conclure sur l'utilisation de var/let/const : vous devriez utiliser par default var , utilisez
+// let là oû c'est utile , utilisez const avec parcimonie uniquement avec valeurs primitives immuables.
