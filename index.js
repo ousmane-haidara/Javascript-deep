@@ -290,3 +290,28 @@ function testConst() {
 
 //Conclure sur l'utilisation de var/let/const : vous devriez utiliser par default var , utilisez
 // let là oû c'est utile , utilisez const avec parcimonie uniquement avec valeurs primitives immuables.
+
+/*********************** Hoisting */
+
+function exampleHoisting() {
+  var teacher = 'Ousmane';
+  otherTeacher();
+
+  function otherTeacher() {
+    console.log('teacher', teacher); //undefined
+    var teacher = 'HAIDARA';
+  }
+}
+
+// different between var hoisting ( bad ) and function hoisting ( good )
+
+// let and const are hoisted
+
+function testHoistingLet() {
+  {
+    teacher = 'Ousmane'; // TDZ error! , cannot access before initialization
+    let teacher;
+  }
+} // On a le TDZ à cause de const, du coup, ils ont fait pareil avec let
+
+//testHoistingLet()
