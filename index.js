@@ -205,3 +205,85 @@ function testScopeJs() {
  * undefined: pas de valeur à cet instant
  * undeclared: jamais de valeur dans tous les scopes que le compilateur parcours
  */
+
+var x = function foo() {
+  var y = foo();
+};
+/**
+ * x is global scope
+ * foo is global scope
+ * y is foo function scope
+ */
+
+// Function Scoping
+
+function test() {
+  var teacher = 'ousmane';
+
+  var teacher = 'HAIDARA'; // pour éviter d'ecraser teacher , on peut le mettre dans une fonction
+
+  console.log('teacher', teacher);
+}
+
+//test()
+
+function test2() {
+  var teacher = 'ousmane';
+
+  {
+    // C'est un block car on a au moins un let/const à l'intéreur
+    let teacher = 'HAIDARA';
+
+    console.log('teacher', teacher);
+  }
+
+  console.log('teacher', teacher);
+}
+
+//test2()
+
+//chose between let and var
+function repeat(fn, n) {
+  var result;
+
+  for (let i = 0; i < n; i++) {
+    result = fn(result, i);
+
+    if (i !== 0 && i % 2 === 0) {
+      console.log(i, result);
+    }
+  }
+  console.log('result', result);
+  return result;
+}
+
+const fn = function (x, y) {
+  return x + y;
+};
+
+//repeat(fn, 3);
+
+// on utilise let pour bloquer la portée  de la variable ( seulement ) let a une porté bloc
+// var pour une portée global ou function
+
+function lookupRecord(searchStr, fn) {
+  try {
+    var id = fn(searchStr);
+  } catch (err) {
+    var id = -1;
+  }
+  return id;
+} // to test , try to change var in
+
+// const
+
+function testConst() {
+  var teacher = 'Ousmane';
+  teacher = 'HAIDARA'; // => OK
+
+  const myTeacher = teacher;
+  myTeacher = 'HAIDARA'; // => typeError
+
+  const teachers = ['Ousmane', 'HAIDARA'];
+  teachers[1] = 'OusDev'; // => Allowed!
+}
